@@ -52,6 +52,8 @@ public class Main {
 		RentalManager rentalManager = new RentalManager(new RentalService());
 		
 		carManager.showRentableCars(microsoft);
+		
+		System.out.println("hello world");
 	}
 
 }
