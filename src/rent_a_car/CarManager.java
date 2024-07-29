@@ -31,5 +31,9 @@ public class CarManager {
         	}
         }
     }
+    
+    public void getCarInfo(Car car) {
+    	System.out.println(carService.getCarInfo(car));
+    }
 
 }

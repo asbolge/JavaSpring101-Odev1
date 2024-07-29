@@ -4,56 +4,37 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		İndividualCustomer sahan = new İndividualCustomer();
-		sahan.setFirstName("sahan");
-		sahan.setLastName("bölge");
-		sahan.setPhoneNumber("01112223344");
-		sahan.setId(0L);
-		sahan.setNationalIdentity("2131232131");
+		İndividualCustomer sahan = new İndividualCustomer("ahmet şahan", "bölge", 0, "01231234455", "31232131231");
+		CompanyCustomer microsoft = new CompanyCustomer("microsoft", "13212131", 1L, "8746378634");
 		
-		İndividualCustomer hilal = new İndividualCustomer();
-		hilal.setFirstName("hilal");
-		hilal.setLastName("bölge");
-		hilal.setPhoneNumber("05556667788");
-		hilal.setId(1L);
-		hilal.setNationalIdentity("9768764343");
-		
-		CompanyCustomer microsoft = new CompanyCustomer();
-		microsoft.setCompanyName("microsoft");
-		microsoft.setId(2L);
-		microsoft.setPhoneNumber("09998887766");
-		microsoft.setTaxNumber("77777777");
-
 		CustomerManager customerManager = new CustomerManager(new CustomerService());
 		
 		customerManager.addNewCustomer(sahan);
-		customerManager.addNewCustomer(hilal);
 		customerManager.addNewCustomer(microsoft);
 		
 		
-		Sedan egea = new Sedan();
-		egea.setBrand("fiat");
-		egea.setModel("2018 egea");
+		Sedan egea = new Sedan("fiat", "2018 egea", "manuel", 0, "mavi", 0, "dizel", 20, 10);
+		Sedan civic = new Sedan("honda", "1999 civic", "manuel", 0, "gri", 0, "benzin&lpg", 5, 10);
 		
-		SUV egeaCross = new SUV();
-		egeaCross.setBrand("fiat");
-		egeaCross.setModel("2022 egea cross");
+		SUV egeaCross = new SUV("fiat", "2023 egea cross", "otomatik", 0, "kırmızı", 0, "benzin", 50);
+		SUV qasqai = new SUV("nissan", " 2015 qasqai", "otomatik", 0, "beyaz", 0, "dizel", 80);
 		
-		Hatchbag fiesta = new Hatchbag();
-		fiesta.setBrand("ford");
-		fiesta.setModel("2016 fiesta");
+		Hatchbag fiesta = new Hatchbag("ford", "fiesta", "manuel", 0, "gri", 0, "lpg", 30, 12);
 		
 		CarManager carManager = new CarManager(new CarService());
 		
 		carManager.addNewCar(egeaCross);
 		carManager.addNewCar(egea);
 		carManager.addNewCar(fiesta);
+		carManager.addNewCar(qasqai);
+		carManager.addNewCar(civic);
 		
 		RentalManager rentalManager = new RentalManager(new RentalService());
 		
 		carManager.showRentableCars(microsoft);
+		carManager.getCarInfo(fiesta);
+		rentalManager.RentMonthly(microsoft, fiesta);
 		
-		System.out.println("hello world");
 	}
 
 }

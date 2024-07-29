@@ -2,16 +2,19 @@ package rent_a_car;
 
 public class İndividualCustomer extends Customer {
 
-//	public İndividualCustomer(String firstName, String lastName, String nationalIdentity) {
-//		super();
-//		this.firstName = firstName;
-//		this.lastName = lastName;
-//		this.nationalIdentity = nationalIdentity;
-//	}
 	private String firstName;
 	private String lastName;
 	private String nationalIdentity;
-	
+
+	public İndividualCustomer(String firstName, String lastName, long id,String phoneNumber,String nationalIdentity) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.nationalIdentity = nationalIdentity;
+		setName(firstName + " "+ lastName);
+		setId(id);
+		setPhoneNumber(phoneNumber);
+	}
 	public String getName() {
 		return firstName +" "+ lastName;
 	}

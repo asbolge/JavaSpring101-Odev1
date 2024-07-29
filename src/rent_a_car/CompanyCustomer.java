@@ -4,7 +4,17 @@ public class CompanyCustomer extends Customer {
 
 	private String companyName;
 	private String taxNumber;
-		
+	
+	public CompanyCustomer(String companyName,String taxNumber, long id,String phoneNumber) {
+		super();
+		this.companyName = companyName;
+		this.taxNumber = taxNumber;
+		setName(companyName);
+		setId(id);
+		setPhoneNumber(phoneNumber);
+	}
+	
+	
 	public String getName() {
 		return companyName;
 	}

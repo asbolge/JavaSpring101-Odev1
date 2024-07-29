@@ -1,7 +1,9 @@
 package rent_a_car;
 
 public abstract class Car {
-
+		
+		private boolean isMonthlyRentable;
+		private boolean isDailyRentable;
 		private String brand;
 		private String model;
 		private String segment;
@@ -11,6 +13,26 @@ public abstract class Car {
 		private long age;
 		private String fuelType;
 		private double dailyRentalPrice;
+		private double monthlyRentalPrice;
+		private double monthlyDiscount;
+		
+		public Car(boolean isMonthlyRentable, boolean isDailyRentable, String brand, String model, String segment,
+	               String transmissionType, long trunkCapacity, String color, long age, String fuelType,
+	               double dailyRentalPrice, double monthlyDiscount) {
+	        this.isMonthlyRentable = isMonthlyRentable;
+	        this.isDailyRentable = isDailyRentable;
+	        this.brand = brand;
+	        this.model = model;
+	        this.segment = segment;
+	        this.transmissionType = transmissionType;
+	        this.trunkCapacity = trunkCapacity;
+	        this.color = color;
+	        this.age = age;
+	        this.fuelType = fuelType;
+	        this.dailyRentalPrice = dailyRentalPrice;
+	        this.monthlyDiscount = monthlyDiscount;
+	        this.monthlyRentalPrice = (dailyRentalPrice * 30) * (1 - (monthlyDiscount / 100));
+	    }
 		
 		public String getBrand() {
 			return brand;
@@ -63,8 +85,36 @@ public abstract class Car {
 		public double getDailyRentalPrice() {
 			return dailyRentalPrice;
 		}
+		public void setMonthlyDiscount(double monthlyDiscount) {
+			this.monthlyDiscount = monthlyDiscount;
+		}
+		
 		public void setDailyRentalPrice(double dailyRentalPrice) {
 			this.dailyRentalPrice = dailyRentalPrice;
+		}
+		public void setMonthlyRentalPrice() {
+			this.monthlyRentalPrice = (dailyRentalPrice * 30) * (1 - (monthlyDiscount / 100));
+		}
+		
+		public double getMonthlyRentalPrice() {
+			return monthlyRentalPrice = (dailyRentalPrice * 30) * (1 - (monthlyDiscount / 100));
+		}
+				
+		public double getMonthlyDiscount() {
+			return monthlyDiscount;
+		}
+		
+		public boolean getIsMonthlyRentable() {
+			return isMonthlyRentable;
+		}
+		public void setIsMonthlyRentable(boolean isMonthlyRentable) {
+			this.isMonthlyRentable = isMonthlyRentable;
+		}
+		public boolean getIsDailyRentable() {
+			return isDailyRentable;
+		}
+		public void setIsDailyRentable(boolean isDailyRentable) {
+			this.isDailyRentable = isDailyRentable;
 		}
 		
 }
