@@ -29,11 +29,13 @@ public class Main {
 		carManager.addNewCar(qasqai);
 		carManager.addNewCar(civic);
 		
-		RentalManager rentalManager = new RentalManager(new RentalService());
+		RentalManager rentalManager = new RentalManager(new RentalService());sss
 		
 		carManager.showRentableCars(microsoft);
 		carManager.getCarInfo(fiesta);
 		rentalManager.RentMonthly(microsoft, fiesta);
+		rentalManager.RentDaily(sahan, qasqai);
+		rentalManager.RentMonthly(sahan, fiesta);
 		
 	}
 
